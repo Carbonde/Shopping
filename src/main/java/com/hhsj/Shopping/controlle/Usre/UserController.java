@@ -40,5 +40,4 @@ public class UserController {
     public String reg(){
         return "reg";
     }
-//jjjj
 }
