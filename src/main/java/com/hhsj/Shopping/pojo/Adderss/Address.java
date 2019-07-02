@@ -1,5 +1,6 @@
 package com.hhsj.Shopping.pojo.Adderss;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -8,6 +9,7 @@ import java.util.Date;
 public class Address {
     private Integer id;//地址ID
     private Integer name;//快递公司
+    @NotNull
     private String user_id;//用户ID
     private String receiver_name;//收货人全名
     private String receiver_phone;//固定电话

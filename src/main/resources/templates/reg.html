@@ -1,49 +1,251 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>17商城</title>
-<link type="text/css" href="css/css.css" rel="stylesheet" />
-<script type="text/javascript" src="js/jquery.js"></script>
-<script type="text/javascript" src="js/js.js"></script>
-</head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>17商城</title>
+    <style>
+        .drag {
+            width: 300px;
+            height: 40px;
+            line-height: 40px;
+            background-color: #e8e8e8;
+            position: relative;
+            margin: 0 auto;
+        }
 
+        .bg {
+            width: 40px;
+            height: 100%;
+            position: absolute;
+            background-color: #75CDF9;
+        }
+
+        .text {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            user-select: none;
+        }
+
+        .btn {
+            width: 40px;
+            height: 38px;
+            position: absolute;
+            border: 1px solid #ccc;
+            cursor: move;
+            font-family: "宋体";
+            text-align: center;
+            background-color: #fff;
+            user-select: none;
+            color: #666;
+        }
+    </style>
+    <link type="text/css" href="css/css.css" rel="stylesheet"/>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/js.js"></script>
+    <script type="text/javascript" src="js/jquery1.42.min.js"/>
+    <script type="text/javascript" src="js/jqu.js"></script>
+</head>
 <body style=" background:#FFF;">
- <div class="loginLogo">
-  <div class="logoMid">
-   <h1 class="logo" style="height:71px;padding-top:10px;"><a href="index.html"><img src="images/loginLogo.jpg" width="241" height="71" /></a></h1>
-   <div class="loginReg">
-    还没有会员账号?&nbsp;<a href="login.html">登录</a>
-   </div><!--loginReg/-->
-  </div><!--logoMid/-->
- </div><!--loginLogo/-->
- <div class="loginBox">
-  <img src="images/chengnuo.jpg" width="295" height="393" class="chengnuo" />
-  <form action="#.html" method="get" class="reg">
-   <div class="regList">
-    <label><span class="red">*</span> 账户名</label>
-    <input type="text" /> <span style="color:#999;">请输入邮箱/用户名/手机号</span>
-   </div><!--regList/-->
-   <div class="regList">
-    <label><span class="red">*</span> 请设置密码</label>
-    <input type="password" />
-   </div><!--regList/-->
-   <div class="regList">
-    <label><span class="password">*</span> 请确认密码</label>
-    <input type="text" />
-   </div><!--regList/-->
-   <div class="regList">
-    <label><span class="red">*</span> 验证码</label>
-    <input type="text" class="yanzheng" /><img src="images/yanzheng.jpg" width="103" height="38" />
-   </div><!--regList/-->
-   <div class="xieyi">
-    <input type="checkbox" /> 我已经阅读并同意<a href="#">《17用户注册协议》</a>
-   </div><!--xieyi/-->
-   <div class="reg">
-    <input type="image" src="images/reg.jpg" width="284" height="34" />
-   </div><!--reg/-->
-  </form><!--reg/-->
-  <div class="clears"></div>
- </div><!--loginBox/-->
+<div class="loginLogo">
+    <div class="logoMid">
+        <h1 class="logo" style="height:71px;padding-top:10px;"><a href="main.html"><img src="images/loginLogo.jpg"
+                                                                                        width="241" height="71"/></a>
+        </h1>
+        <div class="loginReg">
+            有会员账号?&nbsp;<a href="/login">登录</a>
+        </div><!--loginReg/-->
+    </div><!--logoMid/-->
+</div><!--loginLogo/-->
+<div class="loginBox">
+    <img src="images/chengnuo.jpg" width="295" height="393" class="chengnuo"/>
+    <form action="/Add" method="post" class="reg">
+        <div class="regList">
+            <label><span class="red">*</span> 账户名</label>
+            <input type="text" name="username" id="username"/> <span style="color:#999;"></span>
+            <span id="ll" style="color: red;font-size: 14px;"></span>
+            <span id="ll5" style="color: red;font-size: 14px;"></span>
+        </div><!--regList/-->
+        <div class="regList">
+            <label><span class="red">*</span> 请输入邮箱</label>
+            <input type="email" name="email" id="email"/>
+            <span id="ll1" style="color: red;font-size: 14px;"></span>
+        </div><!--regList/-->
+        <div class="regList">
+            <label><span class="red">*</span> 请输入手机号</label>
+            <input type="phone" name="phone" id="phone"/>
+            <span id="ll2" style="color: red;font-size: 14px;"></span>
+        </div><!--regList/-->
+        <div class="regList">
+            <label><span class="red">*</span> 请设置密码</label>
+            <input type="password" name="password" id="password"/>
+            <span id="ll3" style="color: red;font-size: 14px;"></span>
+        </div><!--regList/-->
+        <div class="regList">
+            <label><span class="password">*</span> 请确认密码</label>
+            <input type="password" name="password1" id="password1"/>
+            <span id="ll4" style="color: red;font-size: 14px;"></span>
+        </div><!--regList/-->
+        <div class="regList">
+            <label><span class="red">*</span>滑动验证</label>
+            <div class="drag" style="right: 205px">
+                <div class="bg"></div>
+                <div class="text" onselectstart="return false;">请拖动滑块解锁</div>
+                <div class="btn">&gt;&gt;</div>
+            </div>
+            <script>
+                //一、定义一个获取DOM元素的方法
+                var $ = function (selector) {
+                            return document.querySelector(selector);
+                        },
+                        box = $(".drag"),//容器
+                        bg = $(".bg"),//背景
+                        text = $(".text"),//文字
+                        btn = $(".btn"),//滑块
+                        success = false,//是否通过验证的标志
+                        distance = box.offsetWidth - btn.offsetWidth;//滑动成功的宽度（距离）
+
+                //二、给滑块注册鼠标按下事件
+                btn.onmousedown = function (e) {
+
+                    //1.鼠标按下之前必须清除掉后面设置的过渡属性
+                    btn.style.transition = "";
+                    bg.style.transition = "";
+                    //说明：clientX 事件属性会返回当事件被触发时，鼠标指针向对于浏览器页面(或客户区)的水平坐标。
+                    //2.当滑块位于初始位置时，得到鼠标按下时的水平位置
+                    var e = e || window.event;
+                    var downX = e.clientX;
+                    //三、给文档注册鼠标移动事件
+                    document.onmousemove = function (e) {
+                        var e = e || window.event;
+                        //1.获取鼠标移动后的水平位置
+                        var moveX = e.clientX;
+                        //2.得到鼠标水平位置的偏移量（鼠标移动时的位置 - 鼠标按下时的位置）
+                        var offsetX = moveX - downX;
+                        //3.在这里判断一下：鼠标水平移动的距离 与 滑动成功的距离 之间的关系
+                        if (offsetX > distance) {
+                            offsetX = distance;//如果滑过了终点，就将它停留在终点位置
+                        } else if (offsetX < 0) {
+                            offsetX = 0;//如果滑到了起点的左侧，就将它重置为起点位置
+                        }
+                        //4.根据鼠标移动的距离来动态设置滑块的偏移量和背景颜色的宽度
+                        btn.style.left = offsetX + "px";
+                        bg.style.width = offsetX + "px";
+                        //如果鼠标的水平移动距离 = 滑动成功的宽度
+                        if (offsetX == distance) {
+                            //1.设置滑动成功后的样式
+                            text.innerHTML = "验证通过";
+                            text.style.color = "#fff";
+                            btn.innerHTML = "&radic;";
+                            btn.style.color = "green";
+                            bg.style.backgroundColor = "lightgreen";
+                            //2.设置滑动成功后的状态
+                            success = true;
+                            //成功后，清除掉鼠标按下事件和移动事件（因为移动时并不会涉及到鼠标松开事件）
+                            btn.onmousedown = null;
+                            document.onmousemove = null;
+                            //3.成功解锁后的回调函数
+                            setTimeout(function () {
+//                                alert('解锁成功！');
+                            }, 100);
+                        }
+                    }
+                    //四、给文档注册鼠标松开事件
+                    document.onmouseup = function (e) {
+                        //如果鼠标松开时，滑到了终点，则验证通过
+                        if (success) {
+                            return;
+                        } else {
+                            //反之，则将滑块复位（设置了1s的属性过渡效果）
+                            btn.style.left = 0;
+                            bg.style.width = 0;
+                            btn.style.transition = "left 1s ease";
+                            bg.style.transition = "width 1s ease";
+                        }
+                        //只要鼠标松开了，说明此时不需要拖动滑块了，那么就清除鼠标移动和松开事件。
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+                    }
+                }
+            </script>
+        </div><!--regList/-->
+        <div class="xieyi">
+            <input type="checkbox" name="checked" id="checked" value="1"/> 我已经阅读并同意<a href="#">《17用户注册协议》</a>
+        </div><!--xieyi/-->
+        <div class="xieyi">
+            <input type="submit" id="zc" value="注册" style="left: 125px"/>
+        </div><!--reg/-->
+    </form><!--reg/-->
+    <div class="clears"></div>
+    <script type="text/javascript">
+        jQuery(function () {
+            jQuery("#username").click(function () {
+                jQuery("#ll").html(null);
+            })
+            jQuery("#email").click(function () {
+                jQuery("#ll1").html(null);
+            })
+            jQuery("#phone").click(function () {
+                jQuery("#ll2").html(null);
+            })
+            jQuery("#password").click(function () {
+                jQuery("#ll3").html(null);
+                jQuery("#ll4").html(null);
+            })
+            jQuery("#password1").click(function () {
+                jQuery("#ll4").html(null);
+                jQuery("#ll3").html(null);
+
+            })
+            jQuery("#checked").click(function () {
+                jQuery("#ll5").html(null);
+            })
+        })
+    </script>
+</div>
 </body>
 </html>
+<script type="text/javascript">
+    jQuery(function () {
+        jQuery("#zc").click(function () {
+            var userName = jQuery("#username").val();
+            var Email = jQuery("#email").val();
+            var Phone = jQuery("#phone").val();
+            var Password = jQuery("#password").val();
+            var Password1 = jQuery("#password1").val();
+            obj = document.getElementsByName("checked");
+            check_val = [];
+            for (k in obj) {
+                if (obj[k].checked)
+                    check_val.push(obj[k].value);
+            }
+            if (check_val == 1) {
+                if (userName == null || userName == '') {
+                    jQuery("#ll").html("用户名不能为空");
+                    return false;
+                } else if (Email == null || Email == '') {
+                    jQuery("#ll1").html("邮箱不能为空");
+                    return false;
+                } else if (Phone == null || Phone.length != 11 || Phone == '') {
+                    jQuery("#ll2").html("请确定输入电话是正确的");
+                    return false;
+                } else if (Password1 == null || Password1 == '') {
+                    jQuery("#ll3").text("输入密码不能为空");
+                    return false;
+                } else if (Password != Password1) {
+                    jQuery("#ll4").text("请确定输入两次密码正确");
+                    jQuery(".drag").location.replace(location.href);
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                jQuery("#ll5").html("请同意用户协议")
+                return false;
+            }
+        })
+    })
+</script>

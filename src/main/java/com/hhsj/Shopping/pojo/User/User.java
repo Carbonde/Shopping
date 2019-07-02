@@ -1,5 +1,8 @@
 package com.hhsj.Shopping.pojo.User;
 
+
+import java.util.Date;
+
 /**
  * Created by xtnloveyou on 2019/6/30.
  */
@@ -9,9 +12,24 @@ public class User {
     private String password;
     private String phone;
     private String email;
-    private String created;
-    private String updated;
+    private Date created;
+    private Date updated;
 
+    public Date getCreated() {
+        return created;
+    }
+
+    public void setCreated(Date created) {
+        this.created = created;
+    }
+
+    public Date getUpdated() {
+        return updated;
+    }
+
+    public void setUpdated(Date updated) {
+        this.updated = updated;
+    }
 
     public Integer getId() {
         return id;
@@ -53,19 +71,5 @@ public class User {
         this.email = email;
     }
 
-    public String getCreated() {
-        return created;
-    }
 
-    public void setCreated(String created) {
-        this.created = created;
-    }
-
-    public String getUpdated() {
-        return updated;
-    }
-
-    public void setUpdated(String updated) {
-        this.updated = updated;
-    }
 }

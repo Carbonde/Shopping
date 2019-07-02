@@ -24,4 +24,20 @@ public class UserService {
         }
         return user1;
     }
+
+    /**
+     * 注册
+     *
+     * @param user
+     * @return
+     */
+    public int InsertUser(User user) {
+        int i = 0;
+        try {
+            userMapper.InsertUser(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
 }
