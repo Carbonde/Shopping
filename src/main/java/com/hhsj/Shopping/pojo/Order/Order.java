@@ -8,7 +8,7 @@ public class Order {
     private Integer user_id;//用户外键
     private String xname;//下单人姓名
     private Integer sp_id;//商品编号
-    private Integer cid;//分类id
+    private String cid;//分类id
     private String name;//商品名称
     private Integer colourid;//商品颜色外键
     private String stype;//商品类型
@@ -54,11 +54,11 @@ public class Order {
         this.sp_id = sp_id;
     }
 
-    public Integer getCid() {
+    public String getCid() {
         return cid;
     }
 
-    public void setCid(Integer cid) {
+    public void setCid(String cid) {
         this.cid = cid;
     }
 

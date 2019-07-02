@@ -15,6 +15,11 @@ public class UserService {
     @Resource
     private UserMapper userMapper;
 
+    /**
+     * 登录
+     * @param user
+     * @return
+     */
     public User LoginUser(User user) {
         User user1 = null;
         try {
@@ -23,5 +28,20 @@ public class UserService {
             e.printStackTrace();
         }
         return user1;
+    }
+    /**
+     * 注册
+     *
+     * @param user
+     * @return
+     */
+    public int InsertUser(User user) {
+        int i = 0;
+        try {
+            userMapper.InsertUser(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return i;
     }
 }
