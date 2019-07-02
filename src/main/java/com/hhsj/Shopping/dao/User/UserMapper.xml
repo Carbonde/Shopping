@@ -6,4 +6,8 @@
     <select id="LoginUser" parameterType="User" resultType="User">
         SELECT * FROM tb_user WHERE username=#{username} AND password=#{password};
     </select>
+    <insert id="InsertUser" parameterType="User">
+        INSERT INTO `tb_user`
+        VALUES(NULL ,#{username},#{password},#{phone},#{email},#{created},#{updated})
+    </insert>
 </mapper>
