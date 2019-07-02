@@ -15,10 +15,10 @@ public class OrderService {
     @Resource
     private OrderMapper orderMapper;
 
-    public List<Order> findOrder(){
+    public List<Order> findOrder(int id){
         List<Order> order = null;
         try {
-            order = orderMapper.findOrder();
+            order = orderMapper.findOrder(id);
         } catch (Exception e) {
             e.printStackTrace();
         }

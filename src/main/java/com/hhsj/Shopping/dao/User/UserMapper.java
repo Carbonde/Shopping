@@ -9,9 +9,4 @@ public interface UserMapper {
     /*登录
     * */
     public User LoginUser(User user) throws Exception;
-
-    /*
- 注册
-  * */
-    public int InsertUser(User user) throws Exception;
 }

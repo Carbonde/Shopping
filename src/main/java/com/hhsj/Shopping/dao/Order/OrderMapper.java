@@ -13,5 +13,5 @@ public interface OrderMapper {
      * @return
      * @throws Exception
      */
-    public List<Order> findOrder()throws Exception;
+    public List<Order> findOrder(int id)throws Exception;
 }

@@ -1,5 +1,9 @@
 /**
+<<<<<<< HEAD
  * Created by HXW on 2019/7/2.
+=======
+ * Created by xtnloveyou on 2019/7/2.
+>>>>>>> origin/master
  */
 jQuery(function () {
     jQuery("#zc").click(function () {

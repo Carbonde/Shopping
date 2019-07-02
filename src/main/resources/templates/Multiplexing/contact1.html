@@ -13,10 +13,10 @@
 <body>
  <div class="mianCont">
   <div class="top">
-    <span th:text="'您好：'+${session.login.getUsername()+' 欢迎来到17商城'}"><h3></h3></span>
-    <span class="topRight">
-    <a href="/order">我的订单</a>&nbsp;|
-    <a href="/vip">会员中心</a>&nbsp;|
+      <span>您好！欢迎来到17商城 请&nbsp;<a href="/login">[登录]</a>&nbsp;<a href="reg.html">[注册]</a></span>
+   <span class="topRight">
+    <a href="/login">我的订单</a>&nbsp;|
+    <a href="/login">会员中心</a>&nbsp;|
     <a href="/contact">联系我们</a>
    </span>
   </div><!--top/-->
@@ -42,7 +42,7 @@
         <img src="images/gouimg.png" width="19" height="20" style="position:relative;top:6px;" />&nbsp;|&nbsp;
         <strong class="red">0</strong>&nbsp;件&nbsp;|
         <strong class="red">￥ 0.00</strong>
-        <a href="/order">去结算</a> <img src="images/youjian.jpg" width="5" height="8" />
+        <a href="/login">去结算</a> <img src="images/youjian.jpg" width="5" height="8" />
     </div><!--gouCar/-->
     <div class="myChunlv">
     <!-- <a href="../Vip/vip.html"><img src="images/mychunlv.jpg" width="112" height="34" /></a>-->
@@ -132,10 +132,10 @@
    </div><!--pntLeft/-->
    <div class="pntRight">
     <ul class="nav">
-        <li class="navCur"><a href="/main">商城首页</a></li>
-        <li><a href="/product">促销中心</a></li>
-        <li><a href="/vip">会员中心</a></li>
-        <li><a href="/help">帮助中心</a></li>
+        <li class="navCur"><a href="/index">商城首页</a></li>
+        <li><a href="/product1">促销中心</a></li>
+        <li><a href="/login">会员中心</a></li>
+        <li><a href="/help1">帮助中心</a></li>
         <div class="clears"></div>
      <div class="phone">TEL：021-12345678</div>
     </ul><!--nav/-->
@@ -159,11 +159,11 @@
     <h4 class="gouLiu">联系我们</h4>
     <div class="contactBox">
     <ul class="contactLeft">
-     <li><strong>上海17纸制品有限公司	</strong></li>
-     <li>地址：上海市浦东新区民生路1403号1012室</li>
-     <li>邮箱：sales@chunlv.com</li>
+     <li><strong>南昌17纸制品有限公司	</strong></li>
+     <li>地址：南昌市江西省青山湖区湖坊镇中欧金球公寓</li>
+     <li>邮箱：@qq.com1319318073</li>
      <li>网址：http://test.webqin.net/chunlv</li>
-     <li>电话：+86 21 3392 6945 / +86 21 3392 6947</li>
+     <li>电话：+86 166 0706 8824</li>
     </ul><!--contactLeft/-->
     <!--引用百度地图API-->
 <style type="text/css">
@@ -279,20 +279,20 @@
    <div class="inHLeft">
     <h4>帮助中心</h4>
     <ul class="inHeList">
-     <li><a href="help.html">购物指南</a></li>
-     <li><a href="help.html">支付方式</a></li>
-     <li><a href="help.html">售后服务</a></li>
-     <li><a href="about.html">企业简介</a></li>
+     <li><a href="/help1">购物指南</a></li>
+     <li><a href="/help1">支付方式</a></li>
+     <li><a href="/help1">售后服务</a></li>
+     <li><a href="#">企业简介</a></li>
      <div class="clears"></div>
     </ul><!--inHeList/-->
    </div><!--inHLeft/-->
    <div class="inHLeft">
     <h4>会员服务</h4>
     <ul class="inHeList">
-     <li><a href="../reg.html">会员注册</a></li>
-     <li><a href="../login.html">会员登录</a></li>
-     <li><a href="order.html">购物车</a></li>
-     <li><a href="order.html">我的订单</a></li>
+     <li><a href="/reg">会员注册</a></li>
+     <li><a href="/login">会员登录</a></li>
+     <li><a href="/login">购物车</a></li>
+     <li><a href="/login">我的订单</a></li>
      <div class="clears"></div>
     </ul><!--inHeList/-->
    </div><!--inHLeft/-->
@@ -308,12 +308,12 @@
   <div class="footer">
    <p>
    <a href="#">进入17官网</a>&nbsp;|&nbsp;
-   <a href="../index.html">商城首页</a>&nbsp;|&nbsp;
-   <a href="product.html">促销中心</a>&nbsp;|&nbsp;
-   <a href="order.html">我的订单</a>&nbsp;|&nbsp;
-   <a href="new.html">新闻动态</a>&nbsp;|&nbsp;
-   <a href="../login.html">会员中心</a>&nbsp;|&nbsp;
-   <a href="help.htmll">帮助中心</a>
+   <a href="/index">商城首页</a>&nbsp;|&nbsp;
+   <a href="/product1">促销中心</a>&nbsp;|&nbsp;
+   <a href="/lohin">我的订单</a>&nbsp;|&nbsp;
+   <a href="#">新闻动态</a>&nbsp;|&nbsp;
+   <a href="/login">会员中心</a>&nbsp;|&nbsp;
+   <a href="/help1">帮助中心</a>
    </p>
    <p>
     版权所有：上海17实业有限公司 版权所有  Copyright 2010-2015   沪ICP备00000000号   <a href="http://www.mycodes.net/" target="_blank">源码之家</a>   
