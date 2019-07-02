@@ -107,7 +107,7 @@ public class JumpControlle {
      */
     @RequestMapping(value = "/proinfo")
     public String proinfo(){
-        return "Business/proinfo";
+        return "Business/proinfo" ;
     }
 
 }
