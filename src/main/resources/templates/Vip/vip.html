@@ -44,12 +44,15 @@
    </form><!--subBox/-->
    <div class="gouwuche">
     <div class="gouCar">
-     <div class="gouCar">
-      <img src="images/gouimg.png" width="19" height="20" style="position:relative;top:6px;" />&nbsp;|&nbsp;
-      <strong class="red">0</strong>&nbsp;件&nbsp;|
-      <strong class="red">￥ 0.00</strong>
-      <a href="/order">去结算</a> <img src="images/youjian.jpg" width="5" height="8" />
-     </div><!--gouCar/-->
+     <img src="images/gouimg.png" width="19" height="20" style="position:relative;top:6px;"/>&nbsp;
+     <strong class="red">0</strong>&nbsp;件&nbsp;
+     <a href="#">购物车</a>
+     <strong class="red">￥ 0.00</strong>
+     <a href="/order">去结算</a> <!--<img src="images/youjian.jpg" width="5" height="8"/>-->
+    </div><!--gouCar/-->
+    <div class="myChunlv">
+     <a href="/vip">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/mychunlv.jpg" width="112" height="34"/></a>
+    </div><!--myChunlv/-->
     <div class="myChunlv">
      <!--<a href="/vip"><img src="images/mychunlv.jpg" width="112" height="34" /></a>-->
     </div><!--myChunlv/-->
@@ -178,7 +181,7 @@
     </dl><!--helpNav/-->
    </div><!--contLeft/-->
    <div class="contRight">
-    <h1 class="vipName"><span>用户名：</span>纯小绿先森  <strong class="vipUp">[点击修改/补充个人信息]</strong></h1>
+    <h1><span th:text="'用户名：'+${session.login.getUsername()}" class="vipName">纯小绿先森</span><strong class="vipUp">[点击修改/补充个人信息]</strong></h1>
     <table class="vipMy">
      <tr>
       <th>用户名</th>
@@ -216,9 +219,13 @@
     </div><!--addList-->
     <div class="addList">
      <label><span class="red">* </span>手机号码:</label>
-     <input type="text" /> 或者固定电话 <input type="text" />
-    </div><!--addList--> 
-    <div class="addList">
+     <input type="text">
+    </div><!--addList-->
+     <div class="addList">
+      <label><span class="red">* </span>固定手机号</label>
+      <input type="text">
+     </div><!--addList-->
+     <div class="addList">
      <label><span class="red">* </span>选择地区:</label>
      <select>
       <option>请选择省</option>

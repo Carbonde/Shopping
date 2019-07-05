@@ -11,6 +11,7 @@ public class Order {
     private String cid;//分类id
     private String name;//商品名称
     private Integer colourid;//商品颜色外键
+    private String city;//出发城市
     private String stype;//商品类型
     private String sml;//商品ml高
     private String bag;//只/袋
@@ -21,6 +22,16 @@ public class Order {
     private Integer number;//下单数量
     private double postage;//邮费
     private String url;//图片路径
+    private String mail;//是否包邮
+    private String total;//总金额
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
 
     public Integer getId() {
         return id;
@@ -156,5 +167,21 @@ public class Order {
 
     public void setUrl(String url) {
         this.url = url;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 }

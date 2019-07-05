@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>17商城</title>
@@ -13,12 +14,11 @@
 <body>
  <div class="mianCont">
   <div class="top">
-   <span>您好！欢迎来到17商城 请&nbsp;<a href="../login.html">[登录]</a>&nbsp;<a href="../reg.html">[注册]</a></span>
-   <span class="topRight">
-    <a href="../Vip/vip.html">我的17</a>&nbsp;|
-    <a href="order.html">我的订单</a>&nbsp;| 
-    <a href="../login.html">会员中心</a>&nbsp;|
-    <a href="contact.html">联系我们</a>
+   <span th:text="'您好：'+${session.login.getUsername()+' 欢迎来到17商城'}"><h3></h3></span>
+     <span class="topRight">
+    <a href="/order">我的订单</a>&nbsp;|
+    <a href="/vip">会员中心</a>&nbsp;|
+    <a href="/contact">联系我们</a>
    </span>
   </div><!--top/-->
   <div class="lsg">
@@ -42,11 +42,8 @@
     <div class="gouCar">
      <img src="images/gouimg.png" width="19" height="20" style="position:relative;top:6px;" />&nbsp;|&nbsp;
      <strong class="red">0</strong>&nbsp;件&nbsp;|
-     <strong class="red">￥ 0.00</strong> 
-     <a href="order.html">去结算</a> <img src="images/youjian.jpg" width="5" height="8" />    
-    </div><!--gouCar/-->
-    <div class="myChunlv">
-     <a href="../Vip/vip.html"><img src="images/mychunlv.jpg" width="112" height="34" /></a>
+     <strong class="red">￥ 0.00</strong>
+     <a href="/order">去结算</a> <img src="images/youjian.jpg" width="5" height="8" />
     </div><!--myChunlv/-->
    </div><!--gouwuche/-->
   </div><!--lsg/-->
@@ -133,10 +130,10 @@
    </div><!--pntLeft/-->
    <div class="pntRight">
     <ul class="nav">
-     <li><a href="../index.html">商城首页</a></li>
-     <li class="navCur"><a href="product.html">促销中心</a></li>
-     <li><a href="../login.html">会员中心</a></li>
-     <li><a href="help.html">帮助中心</a></li>
+     <li class="navCur"><a href="/main">商城首页</a></li>
+     <li><a href="/product">促销中心</a></li>
+     <li><a href="/vip">会员中心</a></li>
+     <li><a href="/help">帮助中心</a></li>
      <div class="clears"></div>
      <div class="phone">TEL：021-12345678</div>
     </ul><!--nav/-->
@@ -228,22 +225,16 @@
    <div class="contRight" style="border:0;">
    <div class="proBox">
    <div id="tsShopContainer">
-	<div id="tsImgS"><a href="images/01.jpg" title="Images" class="MagicZoom" id="MagicZoom"><img width="300" height="300" src="images/01.jpg" /></a></div>
+	<div id="tsImgS"><a th:href="${byId.url}" title="Images" class="MagicZoom" id="MagicZoom"><img width="300" height="300" th:src="${byId.url}" /></a></div>
 	<div id="tsPicContainer">
 		<div id="tsImgSArrL" onclick="tsScrollArrLeft()"></div>
 		<div id="tsImgSCon">
 			<ul>
-				<li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img height="42" width="42" src="images/01.jpg" tsImgS="images/01.jpg" /></li>
-				<li onclick="showPic(1)" rel="MagicZoom"><img height="42" width="42" src="images/02.jpg" tsImgS="images/02.jpg" /></li>
-				<li onclick="showPic(2)" rel="MagicZoom"><img height="42" width="42" src="images/03.jpg" tsImgS="images/03.jpg" /></li>
-				<li onclick="showPic(3)" rel="MagicZoom"><img height="42" width="42" src="images/04.jpg" tsImgS="images/04.jpg" /></li>
-				<li onclick="showPic(4)" rel="MagicZoom"><img height="42" width="42" src="images/05.jpg" tsImgS="images/05.jpg" /></li>
-				<li onclick="showPic(5)" rel="MagicZoom"><img height="42" width="42" src="images/06.jpg" tsImgS="images/06.jpg" /></li>
-				<li onclick="showPic(6)" rel="MagicZoom"><img height="42" width="42" src="images/07.jpg" tsImgS="images/07.jpg" /></li>
-				<li onclick="showPic(7)" rel="MagicZoom"><img height="42" width="42" src="images/08.jpg" tsImgS="images/08.jpg" /></li>
-				<li onclick="showPic(8)" rel="MagicZoom"><img height="42" width="42" src="images/09.jpg" tsImgS="images/09.jpg" /></li>
-				<li onclick="showPic(9)" rel="MagicZoom"><img height="42" width="42" src="images/10.gif" tsImgS="images/10.gif" /></li>
-				<li onclick="showPic(10)" rel="MagicZoom"><img height="42" width="42" src="images/11.gif" tsImgS="images/10.gif" /></li>
+				<li onclick="showPic(0)" rel="MagicZoom" class="tsSelectImg"><img height="42" width="42" th:src="${byId.url}" th:tsImgS="${byId.url}" /></li>
+				<li onclick="showPic(1)" rel="MagicZoom"><img height="42" width="42" th:src="${byId.url}" th:tsImgS="${byId.url}" /></li>
+				<li onclick="showPic(2)" rel="MagicZoom"><img height="42" width="42" th:src="${byId.url}" th:tsImgS="${byId.url}" /></li>
+				<li onclick="showPic(3)" rel="MagicZoom"><img height="42" width="42" th:src="${byId.url}" th:tsImgS="${byId.url}"/></li>
+				<li onclick="showPic(4)" rel="MagicZoom"><img height="42" width="42" th:src="${byId.url}" th:tsImgS="${byId.url}" /></li>
 			</ul>
 		</div>
 		<div id="tsImgSArrR" onclick="tsScrollArrRight()"></div>
@@ -252,24 +243,18 @@
     <script src="js/ShopShow.js"></script>
     </div><!--tsShopContainer/-->
     <div class="proBoxRight">
-     <h3 class="proTitle">17 饮料杯 250ml 41121 50个/袋</h3>
-     <div>商品编号： 334011 </div>
-     <div>会员价：<strong class="red">¥7.20</strong> </div>
-     <div>单位：袋 </div>
-     <div>库存：<strong class="red">[有货] </strong> 从上海发货</div>
-     <ul class="rongliang">
-      <li>100ml</li>
-      <li>200ml</li>
-      <li>300ml</li>
-      <li>400ml</li>
-      <li>500ml</li>
-      <div class="clears"></div>
-     </ul><!--rongliang/-->
+     <h3 class="proTitle"><td th:text="${byId.name}">17 饮料杯</td></h3>
+     <div>编号： <td th:text="${byId.sp_id}">334011</td></div>
+     <div>毫升： <td th:text="${byId.ml}">250ml</td></div>
+     <div>单位： <td th:text="${byId.bag}"> 5只/袋 8袋/箱</td></div>
+     <div>会员价：<strong class="red"><td  th:text="'￥'+${byId.vlp}">¥7.20</td></strong> </div>
+     <div>库存：<strong class="red"><td th:text="${byId.stock}"> [有货] 从上海发货</td></strong> </div>
      <div class="shuliang2">
       数量： <input type="text" value="1" />
      </div><!--shuliang2/-->
+     <div >邮费：<strong class="red"><td th:text="${byId.mail}">不包邮：￥10</td></strong></div>
      <div class="gc">
-      <a href="order.html"><img src="images/goumai.png" width="117" height="36" /></a>&nbsp;&nbsp;
+      <a  th:href="@{/findPrice(id=${byId.id})}"><img src="images/goumai.png" width="117" height="36" /></a>&nbsp;&nbsp;
       <a href="#"><img src="images/shoucang.png" width="117" height="36" /></a>
      </div><!--gc/-->    
     </div><!--proRight/-->
@@ -284,18 +269,7 @@
     </ul><!--fangyuan/-->
     <div class="fangList">
     <div class="fangPar">
-         乐购超市旁，未来地铁14号线沿线地段，规划中上海四大商业附中心—真如商业副中心，婚房精装电梯两房。让您一步到位<br />
-    很荣幸栗见能借此机会给您问好，为您介绍此房.<br />
-    超稀缺地铁双南两房，全明户型，满五唯一，业主急需资金周转特急卖。<br />
-    Information of Vernal Garden 满庭芳花园 <br />
-    Location:<br />
-    Located close to Gubei Carrefour and the Hongqiao Airport, 15 mins drive to international schools and downtown area.<br />
-    Description:<br />
-    It offers a full range of accommodations including freestanding houses, semi-detached houses and condominiums. The units are very spacious, well decorated and fully furnished. Resident can enjoy a complete range of onsite <br />recreational facilities. <br />
-    Facilities:<br />
-    Indoor swimming door, gym, sauna, spa, squash, cafe, childrens playground, restaurant, convenience store, snooker, basketball court. <br />
-    Tv Channel:<br />
-    HBO，TVB，BBC，DISCOVERY，CINEMAX，
+       挺好的
     </div><!--fangPar/-->
     <img src="images/ban1.jpg" width="756" height="310" />
     </div><!--fangList/-->
@@ -306,11 +280,7 @@
      商品评论
     </div><!--fangList/-->
     <div class="fangList">
-     <img src="images/rdPro1.jpg" width="132" height="129" /><br /><br />
-     <img src="images/rdPro2.jpg" width="132" height="129" /><br /><br />
-     <img src="images/rdPro3.jpg" width="132" height="129" /><br /><br />
-     <img src="images/rdPro4.jpg" width="132" height="129" /><br /><br />
-     <img src="images/rdPro5.jpg" width="132" height="129" /><br /><br />
+     <img th:src="${byId.url}" width="132" height="129" />&nbsp;&nbsp;&nbsp;&nbsp;<img th:src="${byId.url}" width="132" height="129" />
     </div><!--fangList/-->
    </div><!--contRight/-->
    <div class="clears"></div>

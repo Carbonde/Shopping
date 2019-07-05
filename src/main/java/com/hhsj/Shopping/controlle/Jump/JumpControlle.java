@@ -1,7 +1,12 @@
 package com.hhsj.Shopping.controlle.Jump;
 
+import com.hhsj.Shopping.pojo.Order.Order;
+import com.hhsj.Shopping.service.Order.OrderService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.annotation.Resource;
 
 /**
  * Created by xtnloveyou on 2019/7/2.
@@ -9,6 +14,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class JumpControlle {
+    @Resource
+    private OrderService orderService;
+
+    @RequestMapping(value = "/backstage")
+    public String login(){
+        return "backstageLogin";
+    }
+    /**
+     * 商城首页：跳转
+     * @return
+     */
+    @RequestMapping(value = "/main")
+    public String main(Model model){
+        return "main";
+    }
 
     /**
      * 结算页面: 跳转
@@ -16,7 +36,7 @@ public class JumpControlle {
      */
     @RequestMapping(value = "/order")
     public String order1(){
-        return "Business/order";
+        return "Business/order2";
     }
 
     /**
@@ -37,14 +57,6 @@ public class JumpControlle {
         return "Multiplexing/contact1";
     }
 
-    /**
-     * 商城首页：跳转
-     * @return
-     */
-    @RequestMapping(value = "/main")
-    public String main(){
-        return "main";
-    }
 
     /**
      * 促销页面：跳转
@@ -97,7 +109,19 @@ public class JumpControlle {
      * @return
      */
     @RequestMapping(value = "/index")
-    public String index(){
+    public String index(Model model,Order order){
+       /* order.setCid("c");
+        List<Order> recommend = orderService.findRecommend(order);
+        order.setCid("b");
+        List<Order> tableware = orderService.findTableware(order);
+        order.setCid("a");
+        List<Order> paper1 = orderService.findPaper1(order);
+        order.setCid("a");
+        List<Order> order1 = orderService.findOrder(order);
+        model.addAttribute("order",order1);//前台杯子显示
+        model.addAttribute("recommend",recommend);//前台推荐产品显示
+        model.addAttribute("tableware",tableware);//前台餐具显示
+        model.addAttribute("paper1",paper1);//前台纸浆显示*/
         return "index";
     }
 

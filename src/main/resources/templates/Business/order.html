@@ -129,6 +129,25 @@
     </ul><!--InPorNav/-->
     </h2>
    </div><!--pntLeft/-->
+
+   <div class="cont">
+    <div class="carImg"><img src="images/car1.jpg" width="951" height="27" /></div>
+    <table class="orderList">
+     <tr>
+      <th width="20"></th>
+      <th width="430">商品</th>
+      <th width="135">单价</th>
+      <th width="135">数量</th>
+      <th width="135">总金额</th>
+      <th>操作</th>
+     </tr>
+     <tr>
+      <td colspan="6"><div class="shanchu"><img src="images/lajio.jpg" /> 全部删除</div></td>
+     </tr>
+    </table><!--orderList/-->
+    <div class="zongji">
+
+
    <div class="pntRight">
     <ul class="nav">
      <li class="navCur"><a href="/main">商城首页</a></li>
@@ -142,46 +161,44 @@
    <div class="clears"></div>
   </div><!--pnt/-->
   <div class="positions">
-   当前位置：<a href="../index.html">首页</a> &gt; <a href="#" class="posCur">购物车</a>
+   当前位置：<a href="../index.html">首页</a> &gt; <a href="#" class="posCur">确认订单</a>
   </div><!--positions/-->
   <div class="cont">
-   <div class="carImg"><img src="images/car1.jpg" width="951" height="27" /></div>
+   <div class="carImg"><img src="images/33333.png" width="951" height="27" /></div>
    <table class="orderList">
     <tr>
      <th width="20"></th>
-     <th width="430">商品</th>
+     <th width="260">商品</th>
      <th width="135">单价</th>
      <th width="135">数量</th>
      <th width="135">总金额</th>
      <th>操作</th>
     </tr>
     <tr>
-     <td><input type="checkbox" /></td>
+     <td><input type="hidden" value="----" /></td>
      <td>
       <dl>
-       <dt><a href="proinfo.html"><img src="images/pro1.jpg" width="85" height="85" /></a></dt>
-       <dd>全球最大的中文搜索引擎、致力于让网民更便捷<br /><span class="red">有货：</span>从上海出发</dd>
+       <dt><a href="/proinfo"><img  th:src="${findPrice.url}" width="85" height="85" /></a></dt>
+       <dd><span th:text="${findPrice.name}">全球最大的中文搜索引擎、致力于让网民更便捷</span></dd>
+      <dd> <span  th:text="${findPrice.city}">111</span></dd>
        <div class="clears"></div>
       </dl>
      </td>
-     <td><strong class="red">￥70.20</strong></td>
+     <td><strong class="red" th:text=" '￥'+ ${findPrice.vlp}">￥70.20</strong></td>
      <td>
-     <div class="jia_jian">
-      <img src="images/jian.jpg" width="21" height="25" class="jian" />
-      <input type="text" class="shuliang" value="1" />
-      <img src="images/jia.jpg" width="21" height="25" class="jia" />
-     </div>
+      <div class="jia_jian">
+       <input type="text" th:text="${findPrice.number}" class="shuliang" value="" />
+       <img src="images/jia.jpg" width="21" height="25" class="jia" />
+      </div>
      </td>
-     <td><strong class="red">￥70.20</strong></td>
+     <td><strong class="red" th:text="${findPrice.total}">￥70.20</strong></td>
      <td><a href="#" class="green">收藏</a><br /><a href="#" class="green">删除</a></td>
-    </tr>
-    
-    <tr>
-     <td colspan="6"><div class="shanchu"><img src="images/lajio.jpg" /> 全部删除</div></td>
     </tr>
    </table><!--orderList/-->
    <div class="zongji">
-    总计(不含运费)：<strong class="red">￥70.42</strong>
+
+
+    总计(不含运费)：<strong class="red" th:text="${findPrice.total}">￥70.42</strong>
    </div><!--zongji/-->
    <div class="jiesuan">
     <a href="product.html" class="jie_1">继续购物&gt;&gt;</a>

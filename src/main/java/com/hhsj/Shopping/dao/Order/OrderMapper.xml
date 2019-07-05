@@ -3,7 +3,143 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.hhsj.Shopping.dao.Order.OrderMapper">
-    <select id="findOrder" parameterType="int" resultType="Order">
-        SELECT * FROM sp_order WHERE id=#{id}
+    <!--首页推荐产品查询-->
+    <select id="findRecommend" resultType="Order" parameterType="Order">
+        SELECT id,CONCAT(NAME,' ',stype,sml,bag,' ',box)AS NAME,vlp,url
+        FROM sp_order WHERE cid=#{cid} LIMIT 0,5
+    </select>
+
+    <!--首页促销产品查询-->
+    <select id="findPromotion" resultType="Order" parameterType="Order">
+        SELECT id,CONCAT(NAME,' ',stype,sml,bag,' ',box)AS NAME,vlp,url
+        FROM sp_order WHERE cid=#{cid} LIMIT 0,5
+    </select>
+
+    <!--首页杯子系列查询-->
+    <select id="findOrder" resultType="Order" parameterType="Order">
+         SELECT id,CONCAT(NAME,' ',stype,sml,bag,' ',box)AS NAME,vlp,url
+        FROM sp_order WHERE cid=#{cid} LIMIT 0,8
+    </select>
+
+    <!--首页餐具系列查询-->
+    <select id="findTableware" resultType="Order" parameterType="Order">
+        SELECT id,CONCAT(NAME,' ',stype,sml,bag,' ',box)AS NAME,vlp,url
+        FROM sp_order WHERE cid=#{cid} LIMIT 0,8
+    </select>
+
+    <!--首页纸浆系列查询-->
+    <select id="findPaper1" resultType="Order" parameterType="Order">
+        SELECT id,CONCAT(NAME,' ',stype,sml,bag,' ',box)AS NAME,vlp,url
+        FROM sp_order  WHERE cid=#{cid} LIMIT 0,8
+    </select>
+
+    <!--按id查询商品-->
+    <select id="findById" parameterType="int" resultType="Order">
+        SELECT id,user_id,xname,sp_id,city,cid,sml,CONCAT(NAME,' ',stype) AS NAME,
+        colourid,CONCAT(bag,' ',box)AS bag,vlp,ml,number,CONCAT('[',stock,']',' 从',city,'发货')AS stock
+        ,CONCAT(mail,'： ￥',postage)AS mail,url
+        FROM sp_order WHERE  id=#{id};
+    </select>
+
+    <!--按ID查询商品确认订单信息-->
+    <select id="findPrice" parameterType="int" resultType="Order">
+       SELECT CONCAT(NAME,'、',stype,sml)AS NAME,CONCAT(stock,'：从',city,'出发')AS city,vlp,
+       number,(vlp+postage)*number AS total,url FROM sp_order
+       WHERE id= #{id};
+    </select>
+
+    <!--按di查询购物清单查询-->
+    <select id="orderDetails" parameterType="int" resultType="Order">
+       SELECT CONCAT(NAME,'、',stype,sml)AS NAME,CONCAT(stock,'从',city,'出发')AS stock,vlp,
+       number,(vlp+postage)*number AS total,url FROM sp_order
+       WHERE user_id= #{id};
+    </select>
+     <!--异步刷新查询单层杯子-->
+    <select id="findOrders" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS NAME ,vlp,url,id
+        FROM sp_order
+        WHERE cid LIKE #{cid}
+    </select>
+    <select id="findDeck" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+    <select id="findFlutin" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findLucency" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findCream" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findCake" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findSalad" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findWestern" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findChinese" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findBale" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findPaper" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findPaperBag" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findPaperBowl" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findDoggieBag" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
+    </select>
+
+    <select id="findFoodBale" resultType="Order">
+        SELECT  CONCAT(NAME ,'',stype,sml,bag,'',box) AS  NAME ,vlp,url,id
+        from sp_order
+        WHERE cid =#{cid}
     </select>
 </mapper>

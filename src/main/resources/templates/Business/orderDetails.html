@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>17商城</title>
@@ -17,7 +18,7 @@
 <body>
  <div class="mianCont">
   <div class="top">
-   <span>您好！欢迎来到17商城 请&nbsp;<a href="../login.html">[登录]</a>&nbsp;<a href="../reg.html">[注册]</a></span>
+   <span th:text="'您好：'+${session.login.getUsername()+' 欢迎来到17商城'}"><h3></h3></span>
    <span class="topRight">
     <a href="../Vip/vip.html">我的17</a>&nbsp;|
     <a href="order.html">我的订单</a>&nbsp;| 
