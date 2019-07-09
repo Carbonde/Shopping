@@ -33,26 +33,36 @@ public class UserController {
      * @return
      */
     @RequestMapping(value = "/login")
-    public String findUser(Model model, User user,Order order, HttpSession session){
+    public String findUser(Model model,User user,HttpSession session){
         User user1 = userService.LoginUser(user);
-        order.setCid("c");
-        List<Order> recommend = orderService.findRecommend(order);
-        order.setCid("b");
-        List<Order> tableware = orderService.findTableware(order);
-        order.setCid("a");
-        List<Order> paper1 = orderService.findPaper1(order);
-        order.setCid("a");
-        List<Order> order1 = orderService.findOrder(order);
         if(user1!=null){
-            model.addAttribute("order",order1);//前台杯子显示
-            model.addAttribute("recommend",recommend);//前台推荐产品显示
-            model.addAttribute("tableware",tableware);//前台餐具显示
-            model.addAttribute("paper1",paper1);//前台纸浆显示
             session.setAttribute("login",user1);
-            return "main";
+            return "redirect:/main";
         }
         return "login";
     }
+
+    /**
+     * 商城首页：跳转
+     * @return
+     */
+    @RequestMapping(value = "/main")
+    public String main(Model model,Order order){
+        order.setCid("c");
+        List<Order> recommend = orderService.findRecommend(order);
+        order.setCid("g");
+        List<Order> tableware = orderService.findTableware(order);
+        order.setCid("m");
+        List<Order> paper1 = orderService.findPaper1(order);
+        order.setCid("d");
+        List<Order> order1 = orderService.findOrder(order);
+        model.addAttribute("order",order1);//前台杯子显示
+        model.addAttribute("recommend",recommend);//前台推荐产品显示
+        model.addAttribute("tableware",tableware);//前台餐具显示
+        model.addAttribute("paper1",paper1);//前台纸浆显示
+        return "main";
+    }
+
 
     /**
      * 注册：跳转到注册页面

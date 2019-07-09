@@ -1,5 +1,7 @@
 package com.hhsj.Shopping.service.Order;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.hhsj.Shopping.dao.Order.OrderMapper;
 import com.hhsj.Shopping.pojo.Order.Order;
 import org.springframework.stereotype.Service;
@@ -46,6 +48,12 @@ public class OrderService {
         return order1;
     }
 
+    /**
+     *
+     * 首页餐具查询
+     * @param order
+     * @return
+     */
     public List<Order> findTableware(Order order){
         List<Order> tableware = null;
         try {
@@ -56,6 +64,11 @@ public class OrderService {
         return tableware;
     }
 
+    /**
+     * 首页纸浆系列查询
+     * @param order
+     * @return
+     */
     public List<Order> findPaper1(Order order){
         List<Order> paper1 = null;
         try {
@@ -80,6 +93,36 @@ public class OrderService {
             e.printStackTrace();
         }
         return order;
+    }
+
+    /**
+     * 首页所有商品模糊查询杯子
+     * @param PageNum
+     * @param pageSize
+     * @param
+     * @return
+     */
+
+    public PageInfo<Order> findBeizhi(Integer PageNum,Integer pageSize,String name) throws Exception {
+        PageHelper.startPage(PageNum,pageSize);
+        List<Order> orders = orderMapper.findBeizhi(name);
+        PageInfo<Order> pageInfo = new PageInfo<>(orders);
+        return pageInfo;
+    }
+
+    /**
+     * 首页购物车查询
+     * @param order
+     * @return
+     */
+    public List<Order> findGwc(Order order){
+        List<Order> orders = null;
+        try {
+            orders = orderMapper.findGwc(order);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return orders;
     }
 
     /**
@@ -118,17 +161,19 @@ public class OrderService {
     /**
      * 按id查询购物清单
      *
-     * @param id
+     * @param user_id
      * @return
      */
-    public List<Order> orderDetails(Integer id) {
-        List<Order> order = null;
+    public PageInfo<Order> orderDetails(Integer PageNm,Integer PageSize,Integer user_id) {
+        PageHelper.startPage(PageNm,PageSize);
+        List<Order> orders = null;
         try {
-            order = orderMapper.orderDetails(id);
+            orders = orderMapper.orderDetails(user_id);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return order;
+        PageInfo<Order> pageInfo = new PageInfo<>(orders);
+        return pageInfo;
     }
 
 
@@ -384,5 +429,14 @@ public class OrderService {
             e.printStackTrace();
         }
         return orders;
+    }
+    public int UpdatePrice(Order order){
+        int i = 0;
+        try {
+            i = orderMapper.UpdatePrice(order);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return i;
     }
 }

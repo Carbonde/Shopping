@@ -7,8 +7,14 @@
     <title>17商城</title>
     <link type="text/css" href="css/css.css" rel="stylesheet"/>
     <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/js.js"></script>
-    <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="js/kinMaxShow.js"></script>
+    <style type="text/css">
+        .frProList, #rdProBox{
+            display: block!important;
+        }
+    </style>
+    <!--    <script type="text/javascript" src="js/js.js"></script>
+        <script src="js/wb.js" type="text/javascript" charset="utf-8"></script>-->
     <!--//局部刷新所有AJAX-->
     <script type="text/javascript">
         jQuery(function () {
@@ -25,7 +31,7 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
@@ -50,7 +56,7 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
@@ -75,10 +81,11 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
+
                             }
                             jQuery("#frProList").html(html);
                         }
@@ -100,7 +107,7 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
@@ -125,10 +132,11 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
+
                             }
                             jQuery("#frProList").html(html);
                         }
@@ -153,12 +161,13 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
+
                             }
-                            jQuery("#frProList").html(html);
+                            jQuery("#frCaList").html(html);
                         }
                     },
                     error: function (date) {//当访问时候，404，500 等非200的错误状态码
@@ -178,12 +187,13 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
+
                             }
-                            jQuery("#frProList").html(html);
+                            jQuery("#frCaList").html(html);
                         }
                     },
                     error: function (date) {//当访问时候，404，500 等非200的错误状态码
@@ -203,12 +213,12 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
                             }
-                            jQuery("#frProList").html(html);
+                            jQuery("#frCaList").html(html);
                         }
                     },
                     error: function (date) {//当访问时候，404，500 等非200的错误状态码
@@ -228,12 +238,12 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
                             }
-                            jQuery("#frProList").html(html);
+                            jQuery("#frCaList").html(html);
                         }
                     },
                     error: function (date) {//当访问时候，404，500 等非200的错误状态码
@@ -253,12 +263,12 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
                             }
-                            jQuery("#frProList").html(html);
+                            jQuery("#frCaList").html(html);
                         }
                     },
                     error: function (date) {//当访问时候，404，500 等非200的错误状态码
@@ -281,12 +291,12 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
                             }
-                            jQuery("#frProList").html(html);
+                            jQuery("#frPapList").html(html);
                         }
                     },
                     error: function (date) {//当访问时候，404，500 等非200的错误状态码
@@ -306,12 +316,12 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
                             }
-                            jQuery("#frProList").html(html);
+                            jQuery("#frPapList").html(html);
                         }
                     },
                     error: function (date) {//当访问时候，404，500 等非200的错误状态码
@@ -331,12 +341,13 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
+
                             }
-                            jQuery("#frProList").html(html);
+                            jQuery("#frPapList").html(html);
                         }
                     },
                     error: function (date) {//当访问时候，404，500 等非200的错误状态码
@@ -356,12 +367,13 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
+
                             }
-                            jQuery("#frProList").html(html);
+                            jQuery("#frPapList").html(html);
                         }
                     },
                     error: function (date) {//当访问时候，404，500 等非200的错误状态码
@@ -381,12 +393,13 @@
                             var html = "";
                             for (var i = 0; i < data.length; i++) {
                                 html += "<dl>"
-                                        + "<dt>" + "<a href='/proinfo'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
+                                        + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
                                         + "</dl>";
+
                             }
-                            jQuery("#frProList").html(html);
+                            jQuery("#frPapList").html(html);
                         }
                     },
                     error: function (date) {//当访问时候，404，500 等非200的错误状态码
@@ -435,7 +448,7 @@
                                         + "<dt>" + "<a href='/findById?id=" + data[i].id + "'><img src='" + data[i].url + "' width='132' height='129'/></a>" + "</dt>"
                                         + "<dd>" + data[i].name + "</dd>"
                                         + "<dd class='cheng'>￥" + data[i].vlp + "</dd>"
-                                        + "</dl>>";
+                                        + "</dl>";
 
                             }
                             jQuery("#rdProBox").html(html);
@@ -468,23 +481,23 @@
                 <input type="image" src="images/subimg.png" width="63" height="34" class="sub"/>
                 <div class="hotWord">
                     热门搜索：
-                    <a href="/proinfo">冷饮杯</a>&nbsp;
-                    <a href="/proinfo">热饮杯</a> &nbsp;
-                    <a href="/proinfo">纸杯</a>&nbsp;
-                    <a href="/proinfo">纸巾</a> &nbsp;
-                    <a href="/proinfo">纸巾</a> &nbsp;
-                    <a href="/proinfo">纸杯</a>&nbsp;
+                    <input type="hidden" value="餐"/><a href="javascript:void(0)" id="zhibei8">杯子</a>  &nbsp;
+                    <input type="hidden" value="餐"/><a href="javascript:void(0)" id="zhibei9">餐具</a>  &nbsp;
+                    <input type="hidden" value="纸"/><a href="javascript:void(0)" id="zhibei10">纸类</a>  &nbsp;
+                    <input type="hidden" value="纸碟"/><a href="javascript:void(0)" id="zhibei11">纸碟</a> &nbsp;
                 </div><!--hotWord/-->
             </div><!--subBoxDiv/-->
         </form><!--subBox/-->
         <div class="gouwuche">
             <div class="gouCar">
-                <img src="images/gouimg.png" width="19" height="20" style="position:relative;top:6px;"/>&nbsp;|&nbsp;
-                <strong class="red">0</strong>&nbsp;件&nbsp;|
+                <img src="images/gouimg.png" width="19" height="20" style="position:relative;top:6px;"/>&nbsp;
+                <strong class="red">0</strong>&nbsp;件&nbsp;
+                <a href="login">购物车</a>
                 <strong class="red">￥ 0.00</strong>
-                <a href="/login">去结算</a> <img src="images/youjian.jpg" width="5" height="8"/>
+                <a href="/login">去结算</a> <!--<img src="images/youjian.jpg" width="5" height="8"/>-->
             </div><!--gouCar/-->
             <div class="myChunlv">
+                <a href="/login">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/mychunlv.jpg" width="112" height="34"/></a>
             </div><!--myChunlv/-->
         </div><!--gouwuche/-->
     </div><!--lsg/-->
@@ -492,81 +505,27 @@
         <div class="pntLeft">
             <h2 class="Title">所有商品分类</h2>
             <ul class="InPorNav">
-                <li><a href="/product">纸杯系列</a>
-                    <div class="chilInPorNav">
-                        <a href="/product">单层热饮杯</a>
-                        <a href="/product">双层中空杯</a>
-                        <a href="/product">瓦楞隔热杯</a>
-                        <a href="/product">纸碗</a>
-                        <a href="/product">冰淇淋纸杯</a>
-                        <a href="/product">PS杯盖</a>
-                    </div><!--chilLeftNav/-->
+                <li><input type="hidden" value="纸杯"/><a href="javascript:void(0)" id="zhibei">纸杯系列</a>
                 </li>
-                <li><a href="/product">PET系列</a>
-                    <div class="chilInPorNav">
-                        <a href="/product">PET透明杯</a>
-                        <a href="/product">PET透明沙拉盒</a>
-                    </div><!--chilLeftNav/-->
+                <li><input type="hidden" value="透明"/><a href="javascript:void(0)" id="zhibei1">PET系列</a>
                 </li>
-                <li><a href="/product">饮品杯配套系列</a>
-                    <div class="chilInPorNav">
-                        <a href="/product">杯袖</a>
-                        <a href="/product">环保纸浆杯托</a>
-                        <a href="/product">纸杯打包袋</a>
-                        <a href="/product">吸管</a>
-                        <a href="/product">搅拌棒</a>
-                        <a href="/product">杯盖</a>
-                    </div><!--chilLeftNav/-->
+                <li><input type="hidden" value="杯"/><a href="javascript:void(0)" id="zhibei2">饮品杯配套系列</a>
                 </li>
-                <li><a href="/product">纸浆环保餐具系列</a>
-                    <div class="chilInPorNav">
-                        <a href="/product">纸碟</a>
-                        <a href="/product">纸碗</a>
-                        <a href="/product">纸浆带盖汤碗</a>
-                        <a href="/product">连体餐盒</a>
-                        <a href="/product">分体餐盒</a>
-                        <a href="/product">纸浆沙拉盒</a>
-                        <a href="/product">纸托盘</a>
-                    </div><!--chilLeftNav/-->
+                <li><input type="hidden" value="纸碟"/><a href="javascript:void(0)" id="zhibei3">纸浆环保餐具系列</a>
                 </li>
-                <li><a href="/product">纸餐盒系列</a>
-                    <div class="chilInPorNav">
-                        <a href="/product">圆底纸餐盒</a>
-                        <a href="/product">方底纸餐盒</a>
-                        <a href="/product">三明治纸盒</a>
-                        <a href="/product">蛋糕盒</a>
-                        <a href="/product">其他纸餐盒</a>
-                    </div><!--chilLeftNav/-->
+                <li><input type="hidden" value="餐"/><a href="javascript:void(0)" id="zhibei4">纸餐盒系列</a>
                 </li>
-                <li><a href="/product">刀叉勺餐具</a>
-                    <div class="chilInPorNav">
-                        <a href="/product">PS刀叉勺系列</a>
-                        <a href="/product">PLA刀叉勺系列</a>
-                        <a href="/product">淀粉刀叉勺系列</a>
-                        <a href="/product">搅拌棒/吸管</a>
-                    </div><!--chilLeftNav/-->
+                <li><input type="hidden" value="餐具"/><a href="javascript:void(0)" id="zhibei5">刀叉勺餐具</a>
                 </li>
-                <li><a href="/product">生活用纸</a>
-                    <div class="chilInPorNav">
-                        <a href="/product">餐巾纸</a>
-                        <a href="/product">抽纸</a>
-                        <a href="/product">卫生纸</a>
-                        <a href="/product">擦手纸</a>
-                    </div><!--chilLeftNav/-->
+                <li><input type="hidden" value="纸"/><a href="javascript:void(0)" id="zhibei6">生活用纸</a>
                 </li>
-                <li><a href="/product">纸袋/环保打包袋</a>
-                    <div class="chilInPorNav">
-                        <a href="/product">纸袋</a>
-                        <a href="/product">环保淀粉塑料袋</a>
-                        <a href="/product">PLA塑料袋</a>
-                        <a href="/product">食品袋</a>
-                    </div><!--chilLeftNav/-->
+                <li><input type="hidden" value="袋"/><a href="javascript:void(0)" id="zhibei7">纸袋/环保打包袋</a>
                 </li>
             </ul><!--InPorNav/-->
         </div><!--pntLeft/-->
         <div class="pntRight">
             <ul class="nav">
-                <li class="navCur"><a href="/index">商城首页</a></li>
+                <li class="navCur"><a href="/main">商城首页</a></li>
                 <li><a href="/product1">促销中心</a></li>
                 <li><a href="/login">会员中心</a></li>
                 <li><a href="/help1">帮助中心</a></li>
@@ -604,13 +563,13 @@
             </ul><!--rdList/-->
             <div class="rdProBox" id="rdProBox">
                 <dl th:each="recommends : ${recommend}">
-                    <dt><a th:href="@{/findById(id=${recommends.id})}"><img th:src="${recommends.url}" width="132"
+                    <dt><a th:href="@{/findById1(id=${recommends.id})}"><img th:src="${recommends.url}" width="132"
                                                                             height="129"/></a></dt>
                     <dd th:text="${recommends.name}">麻吉16盎司奶茶纸杯 16盎司500ml 40只/袋 20袋/箱</dd>
                     <dd class="cheng" th:text="${recommends.vlp+'/袋'}">￥19.80/袋</dd>
                 </dl>
                 <dl th:each="findPromotions : ${findPromotion}">
-                    <dt><a href="/proinfo"><img th:src="${findPromotions.url}" width="132" height="129"/></a></dt>
+                    <dt><a th:href="@{/findById1(id=${recommends.id})}"><img th:src="${findPromotions.url}" width="132" height="129"/></a></dt>
                     <dd th:text="${findPromotions.name}">麻吉16盎司奶茶纸杯 16盎司500ml 40只/袋 20袋/箱</dd>
                     <dd class="cheng" th:text="${findPromotions.vlp+'/袋'}">￥19.80/袋</dd>
                 </dl>
@@ -644,11 +603,11 @@
             </div><!--floorLeft/-->
             <div class="floorRight">
                 <div class="frProList" id="frProList">
-                    <dl th:each="orders : ${order}">
-                        <dt><a th:href="@{/findById(id=${orders.id})}"><img th:src="${orders.url}" width="132"
-                                                                            height="129"/></a></dt>
-                        <dd th:text="${orders.name}">麻吉16盎司奶茶纸杯 16盎司500ml 40只/袋 20袋/箱</dd>
-                        <dd class="cheng" th:text="${orders.vlp+'/袋'}">￥19.80/袋</dd>
+                    <dl th:each="orders1 : ${order}">
+                        <dt><a th:href="@{/findById1(id=${orders1.id})}"><img th:src="${orders1.url}" width="132"
+                                                                             height="129"/></a></dt>
+                        <dd th:text="${orders1.name}">麻吉16盎司奶茶纸杯 16盎司500ml 40只/袋 20袋/箱</dd>
+                        <dd class="cheng" th:text="${orders1.vlp+'/袋'}">￥19.80/袋</dd>
                     </dl>
                     <div class="clears"></div>
                 </div><!--frProList-->
@@ -677,9 +636,9 @@
                 <div class="flImg"><img src="images/flListimg.jpg" width="198" height="290"/></div>
             </div><!--floorLeft/-->
             <div class="floorRight">
-                <div class="frProList" id="frProList">
+                <div class="frProList" id="frCaList">
                     <dl th:each="tablewares : ${tableware}">
-                        <dt><a th:href="@{/findById(id=${tablewares.id})}"><img th:src="${tablewares.url}" width="132"
+                        <dt><a th:href="@{/findById1(id=${tablewares.id})}"><img th:src="${tablewares.url}" width="132"
                                                                                 height="129"/></a></dt>
                         <dd th:text="${tablewares.name}">麻吉16盎司奶茶纸杯 16盎司500ml 40只/袋 20袋/箱</dd>
                         <dd class="cheng" th:text="${tablewares.vlp+'/袋'}">￥19.80/袋</dd>
@@ -713,9 +672,9 @@
                 <div class="flImg"><img src="images/flListimg.jpg" width="198" height="290"/></div>
             </div><!--floorLeft/-->
             <div class="floorRight">
-                <div class="frProList" id="frProList">
+                <div class="frProList" id="frPapList">
                     <dl th:each="papers : ${paper1}">
-                        <dt><a th:href="@{/findById(id=${papers.id})}"><img th:src="${papers.url}" width="132"
+                        <dt><a th:href="@{/findById1(id=${papers.id})}"><img th:src="${papers.url}" width="132"
                                                                             height="129"/></a></dt>
                         <dd th:text="${papers.name}">麻吉16盎司奶茶纸杯 16盎司500ml 40只/袋 20袋/箱</dd>
                         <dd class="cheng" th:text="${papers.vlp+'/袋'}">￥19.80/袋</dd>
@@ -736,7 +695,7 @@
                 <li><a href="/help1">购物指南</a></li>
                 <li><a href="/help1">支付方式</a></li>
                 <li><a href="/help1">售后服务</a></li>
-                <li><a href="#">企业简介</a></li>
+                <li><a href="/about1">企业简介</a></li>
                 <div class="clears"></div>
             </ul><!--inHeList/-->
         </div><!--inHLeft/-->
@@ -764,16 +723,69 @@
             <a href="#">进入17官网</a>&nbsp;|&nbsp;
             <a href="/index">商城首页</a>&nbsp;|&nbsp;
             <a href="/product1">促销中心</a>&nbsp;|&nbsp;
-            <a href="/lohin">我的订单</a>&nbsp;|&nbsp;
-            <a href="#">新闻动态</a>&nbsp;|&nbsp;
-            <a href="/login">会员中心</a>&nbsp;|&nbsp;
-            <a href="/help1">帮助中心</a>
+            <a href="/login">我的订单</a>&nbsp;|&nbsp;
+            <a href="help1">新闻动态</a>&nbsp;|&nbsp;
+            <a href="login.html">会员中心</a>&nbsp;|&nbsp;
+            <a href="help.htmll">帮助中心</a>
         </p>
         <p>
-            版权所有：上海17实业有限公司 版权所有 Copyright 2010-2015 沪ICP备00000000号 <a href="http://www.mycodes.net/" target="_blank">源码之家</a>
+            版权所有：南昌17实业有限公司 版权所有 Copyright 2019-2019 沪ICP备00000000号 <a href="http://www.mycodes.net/" target="_blank"></a>
         </p>
     </div><!--footer/-->
 </div><!--mianCont/-->
+<script type="text/javascript">
+    $(function(){
+        $("#zhibei").click(function(){
+            var zhibei =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei+"&pageNum="+1;
+        });
+        $("#zhibei1").click(function(){
+            var zhibei1 =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei1+"&pageNum="+1;
+        });
+        $("#zhibei2").click(function(){
+            var zhibei2 =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei2+"&pageNum="+1;
+        });
+        $("#zhibei3").click(function(){
+            var zhibei3 =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei3+"&pageNum="+1;
+        });
+        $("#zhibei4").click(function(){
+            var zhibei4 =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei4+"&pageNum="+1;
+        });
+        $("#zhibei5" +
+                "").click(function(){
+            var zhibei5 =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei5+"&pageNum="+1;
+        });
+        $("#zhibei6").click(function(){
+            var zhibei6 =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei6+"&pageNum="+1;
+        });
+        $("#zhibei7").click(function(){
+            var zhibei7 =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei7+"&pageNum="+1;
+        });
+        $("#zhibei8").click(function(){
+            var zhibei8 =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei8+"&pageNum="+1;
+        });
+        $("#zhibei9").click(function(){
+            var zhibei9 =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei9+"&pageNum="+1;
+        });
+        $("#zhibei10").click(function(){
+            var zhibei10 =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei10+"&pageNum="+1;
+        });
+        $("#zhibei11").click(function(){
+            var zhibei11 =  $(this).prev().val();
+            window.location = "/findBeizhi?name="+zhibei11+"&pageNum="+1;
+        });
+    });
+</script>
 <a href="#" class="backTop">&nbsp;</a>
 </body>
 </html>

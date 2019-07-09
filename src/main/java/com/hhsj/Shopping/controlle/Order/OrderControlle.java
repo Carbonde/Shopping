@@ -1,13 +1,20 @@
 package com.hhsj.Shopping.controlle.Order;
 
+import com.github.pagehelper.PageInfo;
+import com.hhsj.Shopping.Util.PageUtil;
 import com.hhsj.Shopping.pojo.Order.Order;
 import com.hhsj.Shopping.service.Order.OrderService;
+import org.apache.ibatis.annotations.Param;
+import org.junit.runners.Parameterized;
+import org.omg.CORBA.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -48,6 +55,48 @@ public class OrderControlle {
     }
 
     /**
+     * 首页所有商品模糊查询
+     * @param model
+     * @param request
+     * @param
+     * @param pageNum
+     * @param pageSize
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/findBeizhi")
+    public String findBeizhi(Model model,HttpServletRequest request,
+                             @RequestParam(defaultValue = "1") int pageNum,
+                             @RequestParam(defaultValue = "8") int pageSize, String name) throws Exception {
+        PageInfo<Order> orderList = orderService.findBeizhi(pageNum,pageSize,name);
+        List orderList1 = orderList.getList();
+        PageUtil pageUtil = new PageUtil();
+        pageUtil.setTotalCount(Integer.parseInt(orderList.getTotal() + ""));
+        pageUtil.setPageSize(pageSize);
+        pageUtil.setPageNum(pageNum);
+        String path = pageUtil.getPath(request);
+        model.addAttribute("orderList1",orderList1);
+        model.addAttribute("pageUtil",pageUtil);
+        model.addAttribute("path",path);
+        model.addAttribute("name",name);
+        model.addAttribute("orderList",orderList);
+        return "Business/product";
+    }
+
+    /**
+     * 首页商品购物车信息查询
+     * @param order
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/findGwc")
+    public String findGwc(Model model,Order order){
+        List<Order> orderList = orderService.findGwc(order);
+        model.addAttribute("orderList",orderList);
+        return "Business/order1";
+    }
+
+    /**
      * 按id查询商品信息
      *
      * @param model
@@ -62,31 +111,62 @@ public class OrderControlle {
     }
 
     /**
-     * 按Id查询确认订单信息
+     * 默认首页按id查询商品信息
      *
      * @param model
      * @param id
      * @return
      */
-    @RequestMapping(value = "/findPrice")
-    public String findPrice(Model model, Integer id) {
-        Order findPrice = orderService.findPrice(id);
-        model.addAttribute("findPrice", findPrice);
-        return "Business/order";
+    @RequestMapping(value = "/findById1")
+    public String findById1(Model model, Integer id) {
+        Order byId = orderService.findById(id);
+        model.addAttribute("byId", byId);
+        return "Multiplexing/proinfo1";
+    }
+
+    /**
+     * 按Id查询确认订单信息,并修改购买数量
+     *
+     * @param model
+     * @param id
+     * @return
+     */
+
+    @RequestMapping(value = "/UpdatePrice")
+    public String UpdatePrice(Model model,Integer id,Order order){
+        int orde1 = orderService.UpdatePrice(order);
+        if(orde1!=0){
+            Order findPrice = orderService.findPrice(id);
+            model.addAttribute("findPrice", findPrice);
+            return "Business/order";
+        }else {
+            return "Business/proinfo";
+        }
     }
 
     /**
      * 按id查询购物商品清单
      *
      * @param model
-     * @param id
+     * @param user_id
      * @return
      */
     @RequestMapping(value = "/orderDetails")
-    public String orderDetails(Model model, Integer id) {
-        List<Order> orderDetails = orderService.orderDetails(id);
+    public String orderDetails(Model model,HttpServletRequest request, Integer user_id, @RequestParam(defaultValue = "1")Integer PageNum,
+                                                             @RequestParam(defaultValue = "8")Integer PageSize) {
+        PageInfo<Order> orderDetails = orderService.orderDetails(PageNum,PageSize,user_id);
+        List orderList1 = orderDetails.getList();
+        PageUtil pageUtil = new PageUtil();
+        pageUtil.setTotalCount(Integer.parseInt(orderDetails.getTotal() + ""));
+        pageUtil.setPageSize(PageSize);
+        pageUtil.setPageNum(PageNum);
+        String path = pageUtil.getPath(request);
+        model.addAttribute("orderList1",orderList1);
+        model.addAttribute("pageUtil",pageUtil);
+        model.addAttribute("path",path);
+        model.addAttribute("user_id",user_id);
         model.addAttribute("orderDetails", orderDetails);
-        return "Business/order";
+        return "Business/order2";
     }
 
     /**

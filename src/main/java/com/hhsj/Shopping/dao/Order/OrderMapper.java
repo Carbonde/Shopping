@@ -1,6 +1,7 @@
 package com.hhsj.Shopping.dao.Order;
 
 import com.hhsj.Shopping.pojo.Order.Order;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -48,6 +49,17 @@ public interface OrderMapper {
      * @throws Exception
      */
     public List<Order> findPaper1(Order order)throws Exception;
+
+    /**
+     * 首页所有商品模糊查询杯子
+     * @param
+     * @param
+     * @param
+     * @return
+     * @throws Exception
+     */
+    public List<Order> findBeizhi(@Param(value = "name") String name)throws  Exception;
+
     /**
      * 按id查询商品
      *
@@ -56,6 +68,13 @@ public interface OrderMapper {
      * @throws Exception
      */
     public Order findById(Integer id) throws Exception;
+
+    /**
+     * 首页商品信息查询
+     * @param order
+     * @return
+     */
+    public List<Order> findGwc(Order order)throws  Exception;
 
     /**
      * 按id查询商品订单
@@ -67,13 +86,20 @@ public interface OrderMapper {
     public Order findPrice(Integer id) throws Exception;
 
     /**
+     * 按商品id修改商品购买数量
+     * @param order
+     * @return
+     */
+    public int  UpdatePrice(Order order)throws  Exception;
+
+    /**
      * 查询购物商品清单
      *
      * @param id
      * @return
      * @throws Exception
      */
-    public List<Order> orderDetails(Integer id) throws Exception;
+    public List<Order> orderDetails(@Param(value = "user_id") Integer user_id) throws Exception;
 
     /***
      * 查询单层杯子

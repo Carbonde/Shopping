@@ -24,6 +24,7 @@ public class Order {
     private String url;//图片路径
     private String mail;//是否包邮
     private String total;//总金额
+    private int gwc_id;//购物车id
 
     public String getTotal() {
         return total;
@@ -183,5 +184,13 @@ public class Order {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public int getGwc_id() {
+        return gwc_id;
+    }
+
+    public void setGwc_id(int gwc_id) {
+        this.gwc_id = gwc_id;
     }
 }

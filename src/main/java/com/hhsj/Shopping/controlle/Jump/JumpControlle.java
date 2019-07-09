@@ -7,27 +7,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created by xtnloveyou on 2019/7/2.
  * 跳转类
  */
 @Controller
-public class JumpControlle {
+public class    JumpControlle {
     @Resource
     private OrderService orderService;
 
     @RequestMapping(value = "/backstage")
     public String login(){
         return "backstageLogin";
-    }
-    /**
-     * 商城首页：跳转
-     * @return
-     */
-    @RequestMapping(value = "/main")
-    public String main(Model model){
-        return "main";
     }
 
     /**
@@ -110,18 +103,18 @@ public class JumpControlle {
      */
     @RequestMapping(value = "/index")
     public String index(Model model,Order order){
-       /* order.setCid("c");
+        order.setCid("c");
         List<Order> recommend = orderService.findRecommend(order);
-        order.setCid("b");
+        order.setCid("g");
         List<Order> tableware = orderService.findTableware(order);
-        order.setCid("a");
+        order.setCid("m");
         List<Order> paper1 = orderService.findPaper1(order);
-        order.setCid("a");
+        order.setCid("d");
         List<Order> order1 = orderService.findOrder(order);
         model.addAttribute("order",order1);//前台杯子显示
         model.addAttribute("recommend",recommend);//前台推荐产品显示
         model.addAttribute("tableware",tableware);//前台餐具显示
-        model.addAttribute("paper1",paper1);//前台纸浆显示*/
+        model.addAttribute("paper1",paper1);//前台纸浆显示
         return "index";
     }
 
@@ -132,6 +125,21 @@ public class JumpControlle {
     @RequestMapping(value = "/proinfo")
     public String proinfo(){
         return "Business/proinfo" ;
+    }
+
+    /**
+     * 商品信息：跳转
+     * @return
+     */
+    @RequestMapping(value = "/proinfo1")
+    public String proinfo1(){
+        return "Multiplexing/proinfo1" ;
+    }
+
+
+    @RequestMapping(value = "/order2")
+    public String order2(){
+        return "Business/order1";
     }
 
 }

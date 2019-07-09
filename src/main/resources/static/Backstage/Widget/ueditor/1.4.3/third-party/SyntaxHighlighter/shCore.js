@@ -857,7 +857,7 @@ if (typeof(SyntaxHighlighter) == 'undefined') var SyntaxHighlighter = function()
                 e.preventDefault();
             },
 
-            /** Collection of toolbar items. */
+            /** Collectio of toolbar items. */
             items : {
                 // Ordered lis of items in the toolbar. Can't expect `for (var n in items)` to be consistent.
                 list: ['expandSource', 'help'],
